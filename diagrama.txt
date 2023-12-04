@@ -1,0 +1,68 @@
+Locacao:
+Atributos:
+  estoques: List<Estoque>
+  contratos: List<Contrato>
+
+Métodos:
+  verificaId(List<Estoque> estoque): int
+  verificaId(List<Contrato> contrato): int
+  verificaId(Tipo_item tipoItem): int
+  achaTipoItem(int id): Tipo_item
+  cadastraTipoEquipamento(string nome, int id): void
+  consultaTipoEquipamento(): string
+  cadastraEquipamento(Tipo_item tipoItem, string nome, double vlrDiario): bool
+  verificaItensContrato(List<Itens_contrato> itensContrato): bool
+  registraContrato(int id, DateTime saida, DateTime retorno, List<Itens_contrato> itensContrato): void
+  consultaContrato(): string
+  liberaContrato(int id): bool
+  consultaContratoLiberado(): string
+  realizaDevolucao(int id, int resposta, int indice1, int indice2): string
+  devolveItens(int id): string
+
+Estoque:
+Atributos:
+  Id: int
+  Tipo_item: Tipo_item
+  Retorno: Stack<Item>
+
+Construtor:
+  Estoque(int id, Tipo_item tipoItem)
+
+Contrato:
+Atributos:
+  Id: int
+  AgendamentoSaida: DateTime
+  AgendamentoRetorno: DateTime
+  ListaContrato: List<Itens_contrato>
+  Liberado: bool
+
+Construtor:
+  Contrato(int id, DateTime saida, DateTime retorno, List<Itens_contrato> itensContrato)
+
+Itens_contrato:
+Atributos:
+  ItemContrato: Tipo_item
+  Qtd: int
+
+Construtor:
+  Itens_contrato(Tipo_item itemContrato, int qtd)
+
+Tipo_item:
+Atributos:
+  Id: int
+  Nome: string
+  Itens: List<Item>
+
+Construtores:
+  Tipo_item(int id)
+  Tipo_item(string nome, int id)
+
+Item:
+Atributos:
+  Nome: string
+  Id: int
+  VlrDiario: double
+  Avaria: bool
+
+Construtor:
+  Item(string nome, int id, double vlrDiario)
